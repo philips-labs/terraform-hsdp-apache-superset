@@ -71,12 +71,6 @@ variable "worker_instance_type" {
   default     = "m5.xlarge"
 }
 
-variable "hsdp_ingestor_host" {
-  description = "HSDP Logging ingestor host"
-  type        = string
-  default     = "https://logingestor2-client-test.us-east.philips-healthsuite.com"
-}
-
 variable "hsdp_shared_key" {
   description = "HSDP Logging shared key"
   type        = string

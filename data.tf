@@ -2,6 +2,10 @@ data "hsdp_config" "cf" {
   service = "cf"
 }
 
+data "hsdp_config" "logging" {
+  service = "logging"
+}
+
 data "cloudfoundry_org" "org" {
   name = var.org_name
 }

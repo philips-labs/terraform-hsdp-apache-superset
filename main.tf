@@ -50,7 +50,7 @@ resource "hsdp_container_host_exec" "server" {
 
   file {
     content = templatefile("${path.module}/scripts/bootstrap-fluent-bit.sh.tmpl", {
-      ingestor_host    = var.hsdp_ingestor_host
+      ingestor_host    = data.hsdp_config.logging.url
       shared_key       = var.hsdp_shared_key
       secret_key       = var.hsdp_secret_key
       product_key      = var.hsdp_product_key
