@@ -1,13 +1,18 @@
+data "hsdp_config" "cf" {
+  service = "cf"
+}
+
 data "cloudfoundry_org" "org" {
   name = var.org_name
 }
 
 data "cloudfoundry_space" "space" {
   name = var.space_name
+  org = data.cloudfoundry_org.org.id
 }
 
 data "cloudfoundry_domain" "domain" {
-  name = var.app_domain
+  name = data.hsdp_config.cf.domain
 }
 
 data "cloudfoundry_service" "db" {
@@ -15,5 +20,5 @@ data "cloudfoundry_service" "db" {
 }
 
 data "cloudfoundry_service" "redis" {
-  name = "hsdp-redis-server"
+  name = "hsdp-redis-sentinel"
 }

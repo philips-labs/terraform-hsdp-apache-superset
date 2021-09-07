@@ -14,7 +14,7 @@ start_superset() {
   echo Starting superset...
   docker run -d -v superset:/app/superset \
     -v superset-frontend:/app/superset-frontend \
-    -v superset-home:/app/superset_home
+    -v superset-home:/app/superset_home \
     --restart always \
     --name superset \
     --env DB=postgresql \
@@ -24,8 +24,7 @@ start_superset() {
     --env POSTGRES_SEEDS=${postgres_hostname} \
     --env TEMPORAL_ID=${superset_id} \
     --log-driver=${log_driver} \
-    -p9200:7233 \
-    -p2181:7233 \
+    -p2181:8088 \
     ${superset_image}
 }
 

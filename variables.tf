@@ -20,11 +20,6 @@ variable "user" {
   type        = string
 }
 
-variable "bastion_host" {
-  description = "Bastion host to use for SSH connections"
-  type        = string
-}
-
 variable "private_key" {
   description = "Private key for SSH access (should not have a passphrase)"
   type        = string
@@ -37,11 +32,6 @@ variable "org_name" {
 
 variable "space_name" {
   description = "Cloudfoundry SPACE name to use for reverse proxy"
-  type        = string
-}
-
-variable "app_domain" {
-  description = "The app domain to use"
   type        = string
 }
 
@@ -66,7 +56,7 @@ variable "postgres_plan" {
 variable "redis_plan" {
   description = "The Redis plan to use"
   type        = string
-  default     = "redis-standard-standalone"
+  default     = "redis-standalone"
 }
 
 variable "workers" {

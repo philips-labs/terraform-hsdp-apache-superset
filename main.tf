@@ -11,7 +11,6 @@ resource "hsdp_container_host" "superset" {
   user_groups     = var.user_groups
   security_groups = ["analytics"]
 
-  bastion_host = var.bastion_host
   user         = var.user
   private_key  = var.private_key
 
@@ -29,7 +28,6 @@ resource "hsdp_container_host_exec" "server" {
   }
 
   host         = hsdp_container_host.superset.private_ip
-  bastion_host = var.bastion_host
   user         = var.user
   private_key  = var.private_key
 
