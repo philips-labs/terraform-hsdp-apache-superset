@@ -40,6 +40,7 @@ No modules.
 | [cloudfoundry_service.redis](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/data-sources/service) | data source |
 | [cloudfoundry_space.space](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/data-sources/space) | data source |
 | [hsdp_config.cf](https://registry.terraform.io/providers/philips-software/hsdp/latest/docs/data-sources/config) | data source |
+| [hsdp_config.logging](https://registry.terraform.io/providers/philips-software/hsdp/latest/docs/data-sources/config) | data source |
 
 ## Inputs
 
@@ -53,7 +54,6 @@ No modules.
 | <a name="input_fluent_bit_image"></a> [fluent\_bit\_image](#input\_fluent\_bit\_image) | Fluent-bit image | `string` | `"philipssoftware/fluent-bit-out-hsdp:latest"` | no |
 | <a name="input_hsdp_custom_field"></a> [hsdp\_custom\_field](#input\_hsdp\_custom\_field) | Post structured JSON message to HSDP Logging custom field | `string` | `"true"` | no |
 | <a name="input_hsdp_environment"></a> [hsdp\_environment](#input\_hsdp\_environment) | The HSDP environment of the deployment | `string` | `"client-test"` | no |
-| <a name="input_hsdp_ingestor_host"></a> [hsdp\_ingestor\_host](#input\_hsdp\_ingestor\_host) | HSDP Logging ingestor host | `string` | `"https://logingestor2-client-test.us-east.philips-healthsuite.com"` | no |
 | <a name="input_hsdp_product_key"></a> [hsdp\_product\_key](#input\_hsdp\_product\_key) | HSDP Logging product key | `string` | `""` | no |
 | <a name="input_hsdp_region"></a> [hsdp\_region](#input\_hsdp\_region) | The HSDP region of the deployment | `string` | `"us-east"` | no |
 | <a name="input_hsdp_secret_key"></a> [hsdp\_secret\_key](#input\_hsdp\_secret\_key) | HSDP Logging secret key | `string` | `""` | no |
