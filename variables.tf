@@ -124,3 +124,27 @@ variable "cartel_secret" {
   type        = string
   default     = ""
 }
+
+variable "name_postfix" {
+  type        = string
+  description = "The postfix string to append to the hostname, prevents namespace clashes"
+  default     = ""
+}
+
+variable "docker_username" {
+  type        = string
+  description = "Docker registry username"
+  default     = ""
+}
+
+variable "docker_password" {
+  type        = string
+  description = "Docker registry password"
+  default     = ""
+}
+
+variable "caddy_image" {
+  type        = string
+  description = "Caddy server image to use"
+  default     = "docker.na1.hsdp.io/philipslabs/caddy:latest"
+}

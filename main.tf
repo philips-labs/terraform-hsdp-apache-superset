@@ -1,9 +1,13 @@
+locals {
+  postfix = var.name_postfix != "" ? var.name_postfix : random_id.id.hex
+}
+
 resource "random_id" "id" {
   byte_length = 8
 }
 
 resource "hsdp_container_host" "superset" {
-  name          = "superset-${random_id.id.hex}.dev"
+  name          = "superset-${local.postfix}.dev"
   volumes       = 1
   volume_size   = var.volume_size
   instance_type = var.instance_type
@@ -11,8 +15,8 @@ resource "hsdp_container_host" "superset" {
   user_groups     = var.user_groups
   security_groups = ["analytics"]
 
-  user         = var.user
-  private_key  = var.private_key
+  user        = var.user
+  private_key = var.private_key
 
   commands = [
     "docker volume create superset",
@@ -27,9 +31,9 @@ resource "hsdp_container_host_exec" "server" {
     cluster_instance_ids = hsdp_container_host.superset.id
   }
 
-  host         = hsdp_container_host.superset.private_ip
-  user         = var.user
-  private_key  = var.private_key
+  host        = hsdp_container_host.superset.private_ip
+  user        = var.user
+  private_key = var.private_key
 
   file {
     content = templatefile("${path.module}/scripts/bootstrap-server.sh.tmpl", {

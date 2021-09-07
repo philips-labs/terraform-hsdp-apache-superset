@@ -8,7 +8,7 @@ data "cloudfoundry_org" "org" {
 
 data "cloudfoundry_space" "space" {
   name = var.space_name
-  org = data.cloudfoundry_org.org.id
+  org  = data.cloudfoundry_org.org.id
 }
 
 data "cloudfoundry_domain" "domain" {
