@@ -1,6 +1,7 @@
 # HSDP Apache Superset module
 
-This module deploys Apache Superset on Container Host. 
+This module deploys Apache Superset on Container Host. It also deploys a Caddy based reverse proxy on Cloud foundry so you can access
+the Apache Superset UI.
 
 <!--- BEGIN_TF_DOCS --->
 ## Requirements
