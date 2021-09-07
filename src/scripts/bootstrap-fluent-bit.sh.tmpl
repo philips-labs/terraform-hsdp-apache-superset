@@ -1,0 +1,30 @@
+#!/bin/bash
+
+kill_fluent_bit() {
+  echo Killing fluent-bit...
+  docker kill fluent-bit
+  docker rm fluent-bit
+}
+
+start_fluent_bit() {
+  if [ -z "${product_key}" ]; then
+     echo Not starting fluent-bit as no productKey is set ...
+     return 0
+  fi
+  echo Starting fluent-bit ...
+  docker pull ${fluent_bit_image}
+  docker run -d \
+    --restart always \
+    --name fluent-bit \
+    --env HSDP_INGESTOR_HOST=${ingestor_host} \
+    --env HSDP_SHARED_KEY=${shared_key} \
+    --env HSDP_SECRET_KEY=${secret_key} \
+    --env HSDP_CUSTOM_FIELD=${custom_field} \
+    --env HSDP_PRODUCT_KEY=${product_key} \
+    -p 127.0.0.1:24224:24224 \
+    ${fluent_bit_image}
+}
+
+kill_fluent_bit
+
+start_fluent_bit

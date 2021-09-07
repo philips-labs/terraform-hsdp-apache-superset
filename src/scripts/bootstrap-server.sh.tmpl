@@ -1,0 +1,34 @@
+#!/bin/bash
+
+kill_superset() {
+  echo Killing superset...
+  docker kill superset
+  docker rm superset
+}
+
+start_superset() {
+  LOG_DRIVER=local
+  if [ ! -z "${enable_fluentd}" ]; then
+    LOG_DRIVER=fluentd
+  fi
+  echo Starting superset...
+  docker run -d -v superset:/app/superset \
+    -v superset-frontend:/app/superset-frontend \
+    -v superset-home:/app/superset_home
+    --restart always \
+    --name superset \
+    --env DB=postgresql \
+    --env DB_PORT=5432 \
+    --env POSTGRES_USER=${postgres_username} \
+    --env POSTGRES_PWD=${postgres_password} \
+    --env POSTGRES_SEEDS=${postgres_hostname} \
+    --env TEMPORAL_ID=${superset_id} \
+    --log-driver=${log_driver} \
+    -p9200:7233 \
+    -p2181:7233 \
+    ${superset_image}
+}
+
+kill_superset
+
+start_superset
