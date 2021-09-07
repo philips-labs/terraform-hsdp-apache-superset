@@ -25,6 +25,8 @@ No modules.
 
 | Name | Type |
 |------|------|
+| [cloudfoundry_app.superset_proxy](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/resources/app) | resource |
+| [cloudfoundry_route.superset_proxy](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/resources/route) | resource |
 | [cloudfoundry_service_instance.superset_db](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/resources/service_instance) | resource |
 | [cloudfoundry_service_instance.superset_redis](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/resources/service_instance) | resource |
 | [cloudfoundry_service_key.superset_db_key](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/resources/service_key) | resource |
@@ -43,8 +45,11 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_caddy_image"></a> [caddy\_image](#input\_caddy\_image) | Caddy server image to use | `string` | `"docker.na1.hsdp.io/philipslabs/caddy:latest"` | no |
 | <a name="input_cartel_secret"></a> [cartel\_secret](#input\_cartel\_secret) | The Cartel secret to use for autoscaling | `string` | `""` | no |
 | <a name="input_cartel_token"></a> [cartel\_token](#input\_cartel\_token) | The Cartel token to use for autoscaling | `string` | `""` | no |
+| <a name="input_docker_password"></a> [docker\_password](#input\_docker\_password) | Docker registry password | `string` | `""` | no |
+| <a name="input_docker_username"></a> [docker\_username](#input\_docker\_username) | Docker registry username | `string` | `""` | no |
 | <a name="input_fluent_bit_image"></a> [fluent\_bit\_image](#input\_fluent\_bit\_image) | Fluent-bit image | `string` | `"philipssoftware/fluent-bit-out-hsdp:latest"` | no |
 | <a name="input_hsdp_custom_field"></a> [hsdp\_custom\_field](#input\_hsdp\_custom\_field) | Post structured JSON message to HSDP Logging custom field | `string` | `"true"` | no |
 | <a name="input_hsdp_environment"></a> [hsdp\_environment](#input\_hsdp\_environment) | The HSDP environment of the deployment | `string` | `"client-test"` | no |
@@ -54,6 +59,7 @@ No modules.
 | <a name="input_hsdp_secret_key"></a> [hsdp\_secret\_key](#input\_hsdp\_secret\_key) | HSDP Logging secret key | `string` | `""` | no |
 | <a name="input_hsdp_shared_key"></a> [hsdp\_shared\_key](#input\_hsdp\_shared\_key) | HSDP Logging shared key | `string` | `""` | no |
 | <a name="input_instance_type"></a> [instance\_type](#input\_instance\_type) | The instance type to use | `string` | `"t2.medium"` | no |
+| <a name="input_name_postfix"></a> [name\_postfix](#input\_name\_postfix) | The postfix string to append to the hostname, prevents namespace clashes | `string` | `""` | no |
 | <a name="input_org_name"></a> [org\_name](#input\_org\_name) | Cloudfoundry ORG name to use for reverse proxy | `string` | n/a | yes |
 | <a name="input_postgres_plan"></a> [postgres\_plan](#input\_postgres\_plan) | The HSDP-RDS PostgreSQL plan to use | `string` | `"postgres-medium-dev"` | no |
 | <a name="input_private_key"></a> [private\_key](#input\_private\_key) | Private key for SSH access (should not have a passphrase) | `string` | n/a | yes |
