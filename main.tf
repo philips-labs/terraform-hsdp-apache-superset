@@ -40,6 +40,8 @@ resource "hsdp_container_host_exec" "server" {
       postgres_username = cloudfoundry_service_key.superset_db_key.credentials.username
       postgres_password = cloudfoundry_service_key.superset_db_key.credentials.password
       postgres_hostname = cloudfoundry_service_key.superset_db_key.credentials.hostname
+      redis_host        = cloudfoundry_service_key.superset_redis_key.credentials.host
+      redis_password     = cloudfoundry_service_key.superset_redis_key.credentials.password
       enable_fluentd    = var.hsdp_product_key == "" ? "false" : "true"
       log_driver        = var.hsdp_product_key == "" ? "local" : "fluentd"
       superset_image    = var.superset_image
@@ -65,6 +67,10 @@ resource "hsdp_container_host_exec" "server" {
     "chmod +x /home/${var.user}/bootstrap-fluent-bit.sh",
     "/home/${var.user}/bootstrap-fluent-bit.sh",
     "chmod +x /home/${var.user}/bootstrap-server.sh",
-    "/home/${var.user}/bootstrap-server.sh"
+    "/home/${var.user}/bootstrap-server.sh",
+    "docker exec superset bash -c 'pip install werkzeug==0.16.0'",
+    "docker exec superset flask fab create-permissions",
+    "docker exec superset flask fab create-db",
+    "docker exec superset superset init"
   ]
 }

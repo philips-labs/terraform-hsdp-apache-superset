@@ -12,17 +12,11 @@ start_superset() {
     LOG_DRIVER=fluentd
   fi
   echo Starting superset...
-  docker run -d -v superset:/app/superset \
-    -v superset-frontend:/app/superset-frontend \
-    -v superset-home:/app/superset_home \
+  docker run -d \
+    -e REDIS_SERVER_IP=${redis_host} \
+    -e REDIS_PASSWORD=${redis_password} \
     --restart always \
     --name superset \
-    --env DB=postgresql \
-    --env DB_PORT=5432 \
-    --env POSTGRES_USER=${postgres_username} \
-    --env POSTGRES_PWD=${postgres_password} \
-    --env POSTGRES_SEEDS=${postgres_hostname} \
-    --env TEMPORAL_ID=${superset_id} \
     --log-driver=${log_driver} \
     -p2181:8088 \
     ${superset_image}
