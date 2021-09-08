@@ -69,8 +69,10 @@ resource "hsdp_container_host_exec" "server" {
     "chmod +x /home/${var.user}/bootstrap-server.sh",
     "/home/${var.user}/bootstrap-server.sh",
     "docker exec superset bash -c 'pip install werkzeug==0.16.0'",
-    "docker exec superset flask fab create-permissions",
-    "docker exec superset flask fab create-db",
-    "docker exec superset superset init"
+    "docker exec superset bash -c 'pip install sqlalchemy-redshift'",
+    "docker exec superset bash -c 'pip install sqlalchemy-vertica-python'",
+    "docker exec superset bash -c 'flask fab create-permissions'",
+    "docker exec superset bash -c 'flask fab create-db'",
+    "docker exec superset bash -c 'superset init'"
   ]
 }
