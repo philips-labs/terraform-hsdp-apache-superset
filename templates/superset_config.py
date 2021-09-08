@@ -1,7 +1,4 @@
 import os
-
-# Critical: pip install werkzeug==0.16.0
-
 from werkzeug.contrib.cache import RedisCache
 
 REDIS_SERVER_IP = os.getenv('REDIS_SERVER_IP', '')
@@ -11,7 +8,7 @@ SUPERSET_CACHE_REDIS_URL = "".join(['redis://:', REDIS_PASSWORD, '@', REDIS_SERV
 SUPERSET_BROKER_URL = "".join(['redis://:', REDIS_PASSWORD, '@', REDIS_SERVER_IP, ':6379/0'])
 SUPERSET_CELERY_RESULT_BACKEND = "".join(['redis://:', REDIS_PASSWORD, '@', REDIS_SERVER_IP, ':6379/0'])
 
-CACHE_CONFIG = {
+DATA_CACHE_CONFIG = {
     'CACHE_TYPE': 'redis',
     'CACHE_DEFAULT_TIMEOUT': 300,
     'CACHE_KEY_PREFIX': 'superset_',
@@ -23,10 +20,16 @@ CACHE_CONFIG = {
 
 class CeleryConfig(object):
     BROKER_URL = SUPERSET_BROKER_URL
-    CELERY_IMPORTS = ('superset.sql_lab', )
+    CELERY_IMPORTS = (
+            'superset.sql_lab',
+            'superset.tasks',
+    )
+    CELERYD_LOG_LEVEL = 'DEBUG'
     CELERY_RESULT_BACKEND = SUPERSET_CELERY_RESULT_BACKEND
     CELERY_ANNOTATIONS = {'tasks.add': {'rate_limit': '10/s'}}
+
 CELERY_CONFIG = CeleryConfig
+
 RESULTS_BACKEND = RedisCache(
     host=REDIS_SERVER_IP,
     port=6379,
