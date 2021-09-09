@@ -41,7 +41,7 @@ resource "hsdp_container_host_exec" "server" {
       postgres_password = cloudfoundry_service_key.superset_db_key.credentials.password
       postgres_hostname = cloudfoundry_service_key.superset_db_key.credentials.hostname
       redis_host        = cloudfoundry_service_key.superset_redis_key.credentials.host
-      redis_password     = cloudfoundry_service_key.superset_redis_key.credentials.password
+      redis_password    = cloudfoundry_service_key.superset_redis_key.credentials.password
       enable_fluentd    = var.hsdp_product_key == "" ? "false" : "true"
       log_driver        = var.hsdp_product_key == "" ? "local" : "fluentd"
       superset_image    = var.superset_image
