@@ -48,6 +48,7 @@ resource "hsdp_container_host_exec" "server" {
       superset_id       = random_id.id.hex
     })
     destination = "/home/${var.user}/bootstrap-server.sh"
+    permissions = "0755"
   }
 
   file {
@@ -60,13 +61,12 @@ resource "hsdp_container_host_exec" "server" {
       fluent_bit_image = var.fluent_bit_image
     })
     destination = "/home/${var.user}/bootstrap-fluent-bit.sh"
+    permissions = "0755"
   }
 
   # Bootstrap script called with private_ip of each node in the cluster
   commands = [
-    "chmod +x /home/${var.user}/bootstrap-fluent-bit.sh",
     "/home/${var.user}/bootstrap-fluent-bit.sh",
-    "chmod +x /home/${var.user}/bootstrap-server.sh",
     "/home/${var.user}/bootstrap-server.sh",
     "docker exec superset bash -c 'pip install werkzeug==0.16.0'",
     "docker exec superset bash -c 'pip install sqlalchemy-redshift'",
