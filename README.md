@@ -20,7 +20,10 @@ the Apache Superset UI.
 
 ## Modules
 
-No modules.
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_postgres"></a> [postgres](#module\_postgres) | philips-labs/postgres-service/hsdp | n/a |
+| <a name="module_redis-service"></a> [redis-service](#module\_redis-service) | philips-labs/redis-service/hsdp | 0.2.0 |
 
 ## Resources
 
@@ -28,9 +31,7 @@ No modules.
 |------|------|
 | [cloudfoundry_app.superset_proxy](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/resources/app) | resource |
 | [cloudfoundry_route.superset_proxy](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/resources/route) | resource |
-| [cloudfoundry_service_instance.superset_db](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/resources/service_instance) | resource |
 | [cloudfoundry_service_instance.superset_redis](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/resources/service_instance) | resource |
-| [cloudfoundry_service_key.superset_db_key](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/resources/service_key) | resource |
 | [cloudfoundry_service_key.superset_redis_key](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/resources/service_key) | resource |
 | [hsdp_container_host.superset](https://registry.terraform.io/providers/philips-software/hsdp/latest/docs/resources/container_host) | resource |
 | [hsdp_container_host_exec.server](https://registry.terraform.io/providers/philips-software/hsdp/latest/docs/resources/container_host_exec) | resource |
@@ -79,6 +80,7 @@ No modules.
 |------|-------------|
 | <a name="output_superset_id"></a> [superset\_id](#output\_superset\_id) | Server ID of Superset |
 | <a name="output_superset_ip"></a> [superset\_ip](#output\_superset\_ip) | Private IP address of Superset server |
+| <a name="output_superset_proxy_endpoint"></a> [superset\_proxy\_endpoint](#output\_superset\_proxy\_endpoint) | URL of the Superset proxy |
 
 <!--- END_TF_DOCS --->
 
