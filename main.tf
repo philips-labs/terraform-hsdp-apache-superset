@@ -64,6 +64,12 @@ resource "hsdp_container_host_exec" "server" {
     permissions = "0755"
   }
 
+  file {
+    content = templatefile("${path.module}/templates/superset_config.py", {})
+    destination = "/home/${var.user}/superset_config.py"
+    permissions = "0644"
+  }
+
   # Bootstrap script called with private_ip of each node in the cluster
   commands = [
     "/home/${var.user}/bootstrap-fluent-bit.sh",
@@ -73,6 +79,8 @@ resource "hsdp_container_host_exec" "server" {
     "docker exec superset bash -c 'pip install sqlalchemy-vertica-python'",
     "docker exec superset bash -c 'flask fab create-permissions'",
     "docker exec superset bash -c 'flask fab create-db'",
-    "docker exec superset bash -c 'superset init'"
+    "docker cp /home/${var.user}/superset_config.py superset:/app/pythonpath",
+    "docker exec superset bash -c 'superset init'",
+    "docker restart superset"
   ]
 }
