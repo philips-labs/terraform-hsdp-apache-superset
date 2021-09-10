@@ -37,9 +37,9 @@ resource "hsdp_container_host_exec" "server" {
 
   file {
     content = templatefile("${path.module}/scripts/bootstrap-server.sh.tmpl", {
-      postgres_username = cloudfoundry_service_key.superset_db_key.credentials.username
-      postgres_password = cloudfoundry_service_key.superset_db_key.credentials.password
-      postgres_hostname = cloudfoundry_service_key.superset_db_key.credentials.hostname
+      postgres_username = module.postgres.credentials.username
+      postgres_password = module.postgres.credentials.password
+      postgres_hostname = module.postgres.credentials.hostname
       redis_host        = cloudfoundry_service_key.superset_redis_key.credentials.host
       redis_password    = cloudfoundry_service_key.superset_redis_key.credentials.password
       enable_fluentd    = var.hsdp_product_key == "" ? "false" : "true"
