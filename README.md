@@ -14,9 +14,9 @@ the Apache Superset UI.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_cloudfoundry"></a> [cloudfoundry](#provider\_cloudfoundry) | n/a |
-| <a name="provider_hsdp"></a> [hsdp](#provider\_hsdp) | >= 0.19.3 |
-| <a name="provider_random"></a> [random](#provider\_random) | n/a |
+| <a name="provider_cloudfoundry"></a> [cloudfoundry](#provider\_cloudfoundry) | 0.14.2 |
+| <a name="provider_hsdp"></a> [hsdp](#provider\_hsdp) | 0.19.6 |
+| <a name="provider_random"></a> [random](#provider\_random) | 3.1.0 |
 
 ## Modules
 
