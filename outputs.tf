@@ -1,6 +1,6 @@
 output "superset_proxy_endpoint" {
   description = "URL of the Superset proxy"
-  value = cloudfoundry_route.superset_proxy.endpoint
+  value       = cloudfoundry_route.superset_proxy.endpoint
 }
 
 output "superset_ip" {

@@ -1,0 +1,27 @@
+#!/bin/bash
+
+kill_superset_worker() {
+  echo Killing superset-worker...
+  docker kill superset-worker
+  docker rm superset-worker
+}
+
+start_superset_worker() {
+  LOG_DRIVER=local
+  if [ ! -z "${enable_fluentd}" ]; then
+    LOG_DRIVER=fluentd
+  fi
+  echo Starting superset worker...
+  docker run -d \
+    -e REDIS_SERVER_IP=${redis_host} \
+    -e REDIS_PASSWORD=${redis_password} \
+    --restart always \
+    --name superset-worker \
+    --log-driver=${log_driver} \
+    ${superset_image} \
+    bash -c 'celery --app=superset.tasks.celery_app:app worker --pool=prefork -O fair -c 4'
+}
+
+kill_superset_worker
+
+start_superset_worker

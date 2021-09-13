@@ -14,16 +14,16 @@ the Apache Superset UI.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_cloudfoundry"></a> [cloudfoundry](#provider\_cloudfoundry) | n/a |
-| <a name="provider_hsdp"></a> [hsdp](#provider\_hsdp) | >= 0.19.3 |
-| <a name="provider_random"></a> [random](#provider\_random) | n/a |
+| <a name="provider_cloudfoundry"></a> [cloudfoundry](#provider\_cloudfoundry) | 0.14.2 |
+| <a name="provider_hsdp"></a> [hsdp](#provider\_hsdp) | 0.19.6 |
+| <a name="provider_random"></a> [random](#provider\_random) | 3.1.0 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_postgres"></a> [postgres](#module\_postgres) | philips-labs/postgres-service/hsdp | n/a |
-| <a name="module_redis-service"></a> [redis-service](#module\_redis-service) | philips-labs/redis-service/hsdp | 0.2.0 |
+| <a name="module_redis"></a> [redis](#module\_redis) | philips-labs/redis-service/hsdp | 0.2.0 |
 
 ## Resources
 
@@ -31,10 +31,9 @@ the Apache Superset UI.
 |------|------|
 | [cloudfoundry_app.superset_proxy](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/resources/app) | resource |
 | [cloudfoundry_route.superset_proxy](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/resources/route) | resource |
-| [cloudfoundry_service_instance.superset_redis](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/resources/service_instance) | resource |
-| [cloudfoundry_service_key.superset_redis_key](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/resources/service_key) | resource |
 | [hsdp_container_host.superset](https://registry.terraform.io/providers/philips-software/hsdp/latest/docs/resources/container_host) | resource |
 | [hsdp_container_host_exec.server](https://registry.terraform.io/providers/philips-software/hsdp/latest/docs/resources/container_host_exec) | resource |
+| [hsdp_container_host_exec.worker](https://registry.terraform.io/providers/philips-software/hsdp/latest/docs/resources/container_host_exec) | resource |
 | [random_id.id](https://registry.terraform.io/providers/random/latest/docs/resources/id) | resource |
 | [cloudfoundry_domain.domain](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/data-sources/domain) | data source |
 | [cloudfoundry_org.org](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/data-sources/org) | data source |
