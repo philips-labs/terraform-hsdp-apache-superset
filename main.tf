@@ -59,7 +59,6 @@ resource "hsdp_container_host_exec" "server" {
     permissions = "0644"
   }
 
-  # Bootstrap script called with private_ip of each node in the cluster
   commands = [
     "/home/${var.user}/bootstrap-fluent-bit.sh",
     "/home/${var.user}/bootstrap-server.sh",
