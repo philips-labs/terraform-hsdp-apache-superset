@@ -24,5 +24,5 @@ data "cloudfoundry_service" "db" {
 }
 
 data "cloudfoundry_service" "redis" {
-  name = "hsdp-redis-sentinel"
+  name = "hsdp-redis-db"
 }
