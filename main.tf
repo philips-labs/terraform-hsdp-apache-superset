@@ -109,7 +109,6 @@ resource "hsdp_container_host_exec" "worker" {
     permissions = "0644"
   }
 
-  # Bootstrap script called with private_ip of each node in the cluster
   commands = [
     "/home/${var.user}/bootstrap-worker.sh",
     "docker exec superset-worker bash -c 'pip install werkzeug==0.16.0'",
