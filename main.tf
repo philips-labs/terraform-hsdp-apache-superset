@@ -15,7 +15,8 @@ resource "hsdp_container_host" "superset" {
   user_groups     = var.user_groups
   security_groups = ["analytics"]
 
-  user        = var.user
+  user = var.user
+
   private_key = var.private_key
 
   commands = [

@@ -23,6 +23,7 @@ variable "user" {
 variable "private_key" {
   description = "Private key for SSH access (should not have a passphrase)"
   type        = string
+  default     = ""
 }
 
 variable "org_name" {
