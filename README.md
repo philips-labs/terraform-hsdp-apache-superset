@@ -63,7 +63,7 @@ the Apache Superset UI.
 | <a name="input_name_postfix"></a> [name\_postfix](#input\_name\_postfix) | The postfix string to append to the hostname, prevents namespace clashes | `string` | `""` | no |
 | <a name="input_org_name"></a> [org\_name](#input\_org\_name) | Cloudfoundry ORG name to use for reverse proxy | `string` | n/a | yes |
 | <a name="input_postgres_plan"></a> [postgres\_plan](#input\_postgres\_plan) | The HSDP-RDS PostgreSQL plan to use | `string` | `"postgres-medium-dev"` | no |
-| <a name="input_private_key"></a> [private\_key](#input\_private\_key) | Private key for SSH access (should not have a passphrase) | `string` | n/a | yes |
+| <a name="input_private_key"></a> [private\_key](#input\_private\_key) | Private key for SSH access (should not have a passphrase) | `string` | `""` | no |
 | <a name="input_redis_plan"></a> [redis\_plan](#input\_redis\_plan) | The Redis plan to use | `string` | `"redis-standalone"` | no |
 | <a name="input_space_name"></a> [space\_name](#input\_space\_name) | Cloudfoundry SPACE name to use for reverse proxy | `string` | n/a | yes |
 | <a name="input_superset_image"></a> [superset\_image](#input\_superset\_image) | The Temporal server image to use | `string` | `"apache/superset:latest-dev"` | no |
