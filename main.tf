@@ -60,17 +60,29 @@ resource "hsdp_container_host_exec" "server" {
     permissions = "0644"
   }
 
+  file {
+    content = templatefile("${path.module}/scripts/bootstrap-fluent-bit.sh.tmpl", {
+      ingestor_host    = data.hsdp_config.logging.url
+      shared_key       = var.hsdp_shared_key
+      secret_key       = var.hsdp_secret_key
+      product_key      = var.hsdp_product_key
+      custom_field     = var.hsdp_custom_field
+      fluent_bit_image = var.fluent_bit_image
+    })
+    destination = "/home/${var.user}/bootstrap-fluent-bit.sh"
+    permissions = "0755"
+  }
+
   commands = [
     "/home/${var.user}/bootstrap-fluent-bit.sh",
     "/home/${var.user}/bootstrap-server.sh",
     "docker exec superset bash -c 'pip install werkzeug==0.16.0'",
     "docker exec superset bash -c 'pip install sqlalchemy-redshift'",
     "docker exec superset bash -c 'pip install sqlalchemy-vertica-python'",
-    "docker exec superset bash -c 'flask fab create-permissions'",
-    "docker exec superset bash -c 'flask fab create-db'",
     "docker cp /home/${var.user}/superset_config.py superset:/app/pythonpath",
-    "docker exec superset bash -c 'superset init'",
+    "docker exec superset bash -c 'flask fab create-permissions'",
     "docker exec superset bash -c 'superset db upgrade'",
+    "docker exec superset bash -c 'superset init'",
     "docker restart superset",
   ]
 }
