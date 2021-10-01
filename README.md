@@ -47,7 +47,7 @@ the Apache Superset UI.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_caddy_image"></a> [caddy\_image](#input\_caddy\_image) | Caddy server image to use | `string` | `"docker.na1.hsdp.io/philipslabs/caddy:latest"` | no |
+| <a name="input_caddy_image"></a> [caddy\_image](#input\_caddy\_image) | Caddy server image to use | `string` | `"caddy:2.4.5"` | no |
 | <a name="input_cartel_secret"></a> [cartel\_secret](#input\_cartel\_secret) | The Cartel secret to use for autoscaling | `string` | `""` | no |
 | <a name="input_cartel_token"></a> [cartel\_token](#input\_cartel\_token) | The Cartel token to use for autoscaling | `string` | `""` | no |
 | <a name="input_docker_password"></a> [docker\_password](#input\_docker\_password) | Docker registry password | `string` | `""` | no |
