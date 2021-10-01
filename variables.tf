@@ -141,5 +141,5 @@ variable "docker_password" {
 variable "caddy_image" {
   type        = string
   description = "Caddy server image to use"
-  default     = "docker.na1.hsdp.io/philipslabs/caddy:latest"
+  default     = "caddy:2.4.5"
 }
