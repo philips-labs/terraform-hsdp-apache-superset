@@ -8,7 +8,7 @@ terraform {
     }
     hsdp = {
       source  = "philips-software/hsdp"
-      version = ">= 0.19.3"
+      version = ">= 0.26.3"
     }
   }
 }

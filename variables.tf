@@ -20,6 +20,13 @@ variable "user" {
   type        = string
 }
 
+
+variable "agent" {
+  description = "Use SSH agent for authentication"
+  type        = bool
+  default     = false
+}
+
 variable "private_key" {
   description = "Private key for SSH access (should not have a passphrase)"
   type        = string

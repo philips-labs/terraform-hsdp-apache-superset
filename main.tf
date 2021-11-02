@@ -17,6 +17,7 @@ resource "hsdp_container_host" "superset" {
 
   user = var.user
 
+  agent       = var.agent
   private_key = var.private_key
 
   commands = [
