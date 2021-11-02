@@ -8,14 +8,14 @@ the Apache Superset UI.
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_hsdp"></a> [hsdp](#requirement\_hsdp) | >= 0.19.3 |
+| <a name="requirement_hsdp"></a> [hsdp](#requirement\_hsdp) | >= 0.26.3 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
 | <a name="provider_cloudfoundry"></a> [cloudfoundry](#provider\_cloudfoundry) | 0.14.2 |
-| <a name="provider_hsdp"></a> [hsdp](#provider\_hsdp) | 0.19.6 |
+| <a name="provider_hsdp"></a> [hsdp](#provider\_hsdp) | 0.26.3 |
 | <a name="provider_random"></a> [random](#provider\_random) | 3.1.0 |
 
 ## Modules
@@ -47,6 +47,7 @@ the Apache Superset UI.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_agent"></a> [agent](#input\_agent) | Use SSH agent for authentication | `bool` | `false` | no |
 | <a name="input_caddy_image"></a> [caddy\_image](#input\_caddy\_image) | Caddy server image to use | `string` | `"caddy:2.4.5"` | no |
 | <a name="input_cartel_secret"></a> [cartel\_secret](#input\_cartel\_secret) | The Cartel secret to use for autoscaling | `string` | `""` | no |
 | <a name="input_cartel_token"></a> [cartel\_token](#input\_cartel\_token) | The Cartel token to use for autoscaling | `string` | `""` | no |
