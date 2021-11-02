@@ -17,8 +17,8 @@ resource "hsdp_container_host" "superset" {
 
   user = var.user
 
-  agent       = var.agent
   private_key = var.private_key
+  agent       = var.agent
 
   commands = [
     "docker volume create superset",
@@ -36,6 +36,7 @@ resource "hsdp_container_host_exec" "server" {
   host        = hsdp_container_host.superset.private_ip
   user        = var.user
   private_key = var.private_key
+  agent       = var.agent
 
   file {
     content = templatefile("${path.module}/scripts/bootstrap-server.sh.tmpl", {
@@ -98,6 +99,7 @@ resource "hsdp_container_host_exec" "worker" {
   host        = hsdp_container_host.superset.private_ip
   user        = var.user
   private_key = var.private_key
+  agent       = var.agent
 
   file {
     content = templatefile("${path.module}/scripts/bootstrap-worker.sh.tmpl", {
