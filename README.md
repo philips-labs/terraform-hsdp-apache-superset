@@ -32,8 +32,6 @@ the Apache Superset UI.
 | [cloudfoundry_app.superset_proxy](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/resources/app) | resource |
 | [cloudfoundry_route.superset_proxy](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/resources/route) | resource |
 | [hsdp_container_host.superset](https://registry.terraform.io/providers/philips-software/hsdp/latest/docs/resources/container_host) | resource |
-| [hsdp_container_host_exec.server](https://registry.terraform.io/providers/philips-software/hsdp/latest/docs/resources/container_host_exec) | resource |
-| [hsdp_container_host_exec.worker](https://registry.terraform.io/providers/philips-software/hsdp/latest/docs/resources/container_host_exec) | resource |
 | [random_id.id](https://registry.terraform.io/providers/random/latest/docs/resources/id) | resource |
 | [cloudfoundry_domain.domain](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/data-sources/domain) | data source |
 | [cloudfoundry_org.org](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/data-sources/org) | data source |
