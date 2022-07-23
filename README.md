@@ -98,6 +98,7 @@ License is MIT
 | Name | Version |
 |------|---------|
 | <a name="requirement_hsdp"></a> [hsdp](#requirement\_hsdp) | >= 0.26.3 |
+| <a name="requirement_ssh"></a> [ssh](#requirement\_ssh) | >= 2.1.0 |
 
 ## Providers
 
@@ -106,6 +107,7 @@ License is MIT
 | <a name="provider_cloudfoundry"></a> [cloudfoundry](#provider\_cloudfoundry) | 0.14.2 |
 | <a name="provider_hsdp"></a> [hsdp](#provider\_hsdp) | 0.26.3 |
 | <a name="provider_random"></a> [random](#provider\_random) | 3.1.0 |
+| <a name="provider_ssh"></a> [ssh](#provider\_ssh) | 2.1.0 |
 
 ## Modules
 
@@ -121,9 +123,10 @@ License is MIT
 | [cloudfoundry_app.superset_proxy](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/resources/app) | resource |
 | [cloudfoundry_route.superset_proxy](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/resources/route) | resource |
 | [hsdp_container_host.superset](https://registry.terraform.io/providers/philips-software/hsdp/latest/docs/resources/container_host) | resource |
-| [hsdp_container_host_exec.server](https://registry.terraform.io/providers/philips-software/hsdp/latest/docs/resources/container_host_exec) | resource |
-| [hsdp_container_host_exec.worker](https://registry.terraform.io/providers/philips-software/hsdp/latest/docs/resources/container_host_exec) | resource |
 | [random_id.id](https://registry.terraform.io/providers/random/latest/docs/resources/id) | resource |
+| [ssh_resource.server](https://registry.terraform.io/providers/loafoe/ssh/latest/docs/resources/resource) | resource |
+| [ssh_resource.server_volumes](https://registry.terraform.io/providers/loafoe/ssh/latest/docs/resources/resource) | resource |
+| [ssh_resource.worker](https://registry.terraform.io/providers/loafoe/ssh/latest/docs/resources/resource) | resource |
 | [cloudfoundry_domain.domain](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/data-sources/domain) | data source |
 | [cloudfoundry_org.org](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/data-sources/org) | data source |
 | [cloudfoundry_service.db](https://registry.terraform.io/providers/cloudfoundry-community/cloudfoundry/latest/docs/data-sources/service) | data source |
