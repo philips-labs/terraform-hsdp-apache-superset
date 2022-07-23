@@ -20,6 +20,14 @@ resource "hsdp_container_host" "superset" {
   private_key = var.private_key
   agent       = var.agent
 
+}
+
+resource "ssh_resource" "server_volumes" {
+  host        = hsdp_container_host.superset.private_ip
+  user        = var.user
+  private_key = var.private_key
+  agent       = var.agent
+
   commands = [
     "docker volume create superset",
     "docker volume create superset-frontend",
@@ -28,10 +36,13 @@ resource "hsdp_container_host" "superset" {
   ]
 }
 
-resource "hsdp_container_host_exec" "server" {
+
+resource "ssh_resource" "server" {
   triggers = {
     cluster_instance_ids = hsdp_container_host.superset.id
   }
+
+  depends_on = [ssh_resource.server_volumes]
 
   host        = hsdp_container_host.superset.private_ip
   user        = var.user
@@ -89,12 +100,12 @@ resource "hsdp_container_host_exec" "server" {
   ]
 }
 
-resource "hsdp_container_host_exec" "worker" {
+resource "ssh_resource" "worker" {
   triggers = {
     cluster_instance_ids = hsdp_container_host.superset.id
   }
 
-  depends_on = [hsdp_container_host_exec.server]
+  depends_on = [ssh_resource.server]
 
   host        = hsdp_container_host.superset.private_ip
   user        = var.user
