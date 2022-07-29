@@ -1,8 +1,3 @@
 :80 {
-  @insecure {
-    header X-Forwarded-Proto http
-  }
-  redir @insecure https://{host}{uri} permanent
-
   reverse_proxy ${upstream_url}
 }
