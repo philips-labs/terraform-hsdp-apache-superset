@@ -3,6 +3,13 @@
 This module deploys Apache Superset on Container Host. It also deploys a Caddy based reverse proxy on Cloud foundry so you can access
 the Apache Superset UI.
 
+## Disclaimer
+
+> [!Important]
+> This repository is managed as Philips Inner-source / Open-source.
+> This repository is NOT endorsed or supported by HSSA&P or I&S Cloud Operations. 
+> You are expected to self-support or raise tickets on the Github project and NOT raise tickets in HSP ServiceNow. 
+
 <!--- BEGIN_TF_DOCS --->
 ## Requirements
 
